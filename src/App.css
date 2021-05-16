@@ -65,7 +65,7 @@ body {
   left: 0;
   height: 100%;
   width: 100%;
-  background-image: url("./data/bg1.jpg");
+  background-image: url("./assets/bg1.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

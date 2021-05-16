@@ -1,16 +1,16 @@
 import React from "react";
 import Item from "./Item";
-import shirts from "../data/shirts";
+import shirtsData from "../shirtsData";
 
 function Shop(props) {
   return (
     <div>
       <header className="shop-header">
         <h1>Clubs shirts</h1>
-        <h2>{shirts.length} items</h2>
+        <h2>{shirtsData.length} items</h2>
       </header>
       <ul className="shop-items">
-        {shirts.map((item) => {
+        {shirtsData.map((item) => {
           return (
             <Item
               name={item.name}

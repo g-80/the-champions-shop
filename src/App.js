@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./components/Home";
-import Shop from "./components/Shop";
-import Navbar from "./components/Navbar";
-import ShoppingCart from "./components/ShoppingCart";
-import ItemPage from "./components/ItemPage";
+import Home from "./Components/Home";
+import Shop from "./Components/Shop";
+import Navbar from "./Components/Navbar";
+import ShoppingCart from "./Components/ShoppingCart";
+import ItemPage from "./Components/ItemPage";
 import "./App.css";
 
 function App() {

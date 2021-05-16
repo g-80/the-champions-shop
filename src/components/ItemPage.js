@@ -1,10 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import shirts from "../data/shirts";
+import shirtsData from "../shirtsData";
 
 function ItemPage(props) {
   const { itemId } = useParams();
-  const item = shirts.find((shirt) => {
+  const item = shirtsData.find((shirt) => {
     return shirt.id === itemId;
   });
   const addToCart = () => {
