@@ -11,17 +11,18 @@ function App() {
   const [cart, setCart] = useState([]);
 
   const addToCart = (item) => {
-    const isItemInCart = cart.some((itemInCart) => item.id === itemInCart.id);
+    const isItemInCart = cart.some(
+      (itemInCart) => item.inCartId === itemInCart.inCartId
+    );
     if (isItemInCart) {
       const updatedCart = cart.map((itemInCart) => {
-        if (item.id === itemInCart.id) {
-          itemInCart.quantity = itemInCart.quantity + 1;
+        if (item.inCartId === itemInCart.inCartId) {
+          itemInCart.quantity = itemInCart.quantity + item.quantity;
         }
         return itemInCart;
       });
       setCart(updatedCart);
     } else {
-      item.quantity = 1;
       setCart((prevCart) => [...prevCart, item]);
     }
   };
@@ -30,7 +31,7 @@ function App() {
     // loop through cart and add every item which id
     // doesn't equal the item's id to a new array
     const updatedCart = cart.filter((itemInCart) => {
-      return itemId !== itemInCart.id;
+      return itemId !== itemInCart.inCartId;
     });
     setCart(updatedCart);
   };
@@ -40,7 +41,7 @@ function App() {
       removeItemFromCart(itemId);
     } else {
       const updatedCart = cart.map((itemInCart) => {
-        if (itemId === itemInCart.id) {
+        if (itemId === itemInCart.inCartId) {
           itemInCart.quantity = value;
         }
         return itemInCart;
@@ -77,3 +78,5 @@ function App() {
 }
 
 export default App;
+
+//create cart id

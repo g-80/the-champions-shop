@@ -4,7 +4,7 @@ function ShoppingCartItem({ item, itemRemove, changeQuantity }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleQuantityChange = (value) => {
-    changeQuantity(item.id, value);
+    changeQuantity(item.inCartId, value);
     setIsDropdownOpen(false);
   };
 
@@ -28,11 +28,12 @@ function ShoppingCartItem({ item, itemRemove, changeQuantity }) {
   };
 
   return (
-    <div className="cart-item" key={item.id}>
+    <div className="cart-item">
       <img src={item.img} alt={item.name} className="cart-item-image"></img>
-      <div className="cart-item-name">{item.name}</div>
+      <h3 className="cart-item-name">{item.name}</h3>
+      <span>{item.size}</span>
       <div className="cart-item-quantity">
-        <label className="cart-item-q-label">Quantity</label>
+        <span className="cart-item-q-label">Quantity</span>
         <div className="q-cont">
           <button
             className="q-btn"
@@ -51,10 +52,10 @@ function ShoppingCartItem({ item, itemRemove, changeQuantity }) {
         </div>
         {isDropdownOpen && createListElements()}
       </div>
-      <div className="cart-item-price">£{item.price * item.quantity}</div>
+      <span className="cart-item-price">£{item.price * item.quantity}</span>
       <button
         onClick={() => {
-          itemRemove(item.id);
+          itemRemove(item.inCartId);
         }}
         className="cart-item-delete"
       >

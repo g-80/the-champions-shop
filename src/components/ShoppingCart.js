@@ -20,7 +20,7 @@ function ShoppingCart({ cart, remove, changeQuantity }) {
           <div className="cart-list">
             {cart.map((item) => (
               <ShoppingCartItem
-                key={item.id}
+                key={item.inCartId}
                 item={item}
                 itemRemove={remove}
                 changeQuantity={changeQuantity}
