@@ -297,11 +297,6 @@ body {
   left: 0;
   right: 0;
   z-index: 5;
-  visibility: hidden;
-}
-
-.dropdown-open {
-  visibility: visible;
 }
 
 .q-list-btn {

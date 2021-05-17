@@ -1,27 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
-function ShoppingCartItem({ item, index, itemRemove, changeQuantity }) {
-  const toggleQuantityDropdown = (index) => {
-    // show/hide list elements which are used to display quantity options
-    const allListElements = document.querySelectorAll(".q-dropdown");
-    const dropdown = allListElements[index];
-    dropdown.classList.toggle("dropdown-open");
+function ShoppingCartItem({ item, itemRemove, changeQuantity }) {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const handleQuantityChange = (value) => {
+    changeQuantity(item.id, value);
+    setIsDropdownOpen(false);
   };
 
-  const handleQuantityChange = (value, index) => {
-    // get the item's hidden select element and dispatch an event to it
-    // to allow react to change the state and re-render DOM
-
-    const allSelectElements = document.querySelectorAll(".q-select");
-    const selectElement = allSelectElements[index];
-    selectElement.value = value;
-    const event = new Event("change", { bubbles: true });
-    selectElement.dispatchEvent(event);
-    toggleQuantityDropdown(index);
-  };
-
-  const createListElement = () => {
-    // List elements are what visible for user. They're used for styling
+  const createListElements = () => {
     let listElements = [];
     for (let i = 0; i < 6; i++) {
       const listElement = (
@@ -29,7 +16,7 @@ function ShoppingCartItem({ item, index, itemRemove, changeQuantity }) {
           <button
             className="q-list-btn"
             value={i}
-            onClick={() => handleQuantityChange(i, index)}
+            onClick={() => handleQuantityChange(i)}
           >
             {i}
           </button>
@@ -38,31 +25,6 @@ function ShoppingCartItem({ item, index, itemRemove, changeQuantity }) {
       listElements.push(listElement);
     }
     return <ul className="q-dropdown">{listElements}</ul>;
-  };
-
-  const createSelectElement = () => {
-    // Select element is used for functionality of changing quantity.
-    // It's not visible for users
-    let optionElements = [];
-    for (let i = 0; i < 6; i++) {
-      const optionElement = (
-        <option className="q-option" value={i} key={i}>
-          {i}
-        </option>
-      );
-      optionElements.push(optionElement);
-    }
-    return (
-      <select
-        className="q-select"
-        onChange={(e) => {
-          // changing quantity happens at App component's state
-          changeQuantity(item.id, e.target.value);
-        }}
-      >
-        {optionElements}
-      </select>
-    );
   };
 
   return (
@@ -74,7 +36,7 @@ function ShoppingCartItem({ item, index, itemRemove, changeQuantity }) {
         <div className="q-cont">
           <button
             className="q-btn"
-            onClick={() => toggleQuantityDropdown(index)}
+            onClick={() => setIsDropdownOpen((prev) => !prev)}
           >
             <span className="item-q">{item.quantity}</span>
             <svg className="q-arrow">
@@ -87,10 +49,9 @@ function ShoppingCartItem({ item, index, itemRemove, changeQuantity }) {
             </svg>
           </button>
         </div>
-        {createListElement()}
-        {createSelectElement()}
+        {isDropdownOpen && createListElements()}
       </div>
-      <div className="cart-item-price">£{item.price}</div>
+      <div className="cart-item-price">£{item.price * item.quantity}</div>
       <button
         onClick={() => {
           itemRemove(item.id);

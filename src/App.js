@@ -36,7 +36,7 @@ function App() {
   };
 
   const changeQuantity = (itemId, value) => {
-    if (value === "0") {
+    if (value === 0) {
       removeItemFromCart(itemId);
     } else {
       const updatedCart = cart.map((itemInCart) => {

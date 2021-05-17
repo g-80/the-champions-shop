@@ -12,18 +12,16 @@ function ShoppingCart({ cart, remove, changeQuantity }) {
 
   const createCartContent = () => {
     // create shopping cart depending if it's empty or has items
-    console.log(cart);
     if (cart.length >= 1) {
       return (
         <div className="cart">
           <h1>Your shopping cart</h1>
           <h2 className="cart-items-num">{cart.length} items</h2>
           <div className="cart-list">
-            {cart.map((item, index) => (
+            {cart.map((item) => (
               <ShoppingCartItem
                 key={item.id}
                 item={item}
-                index={index}
                 itemRemove={remove}
                 changeQuantity={changeQuantity}
               />
