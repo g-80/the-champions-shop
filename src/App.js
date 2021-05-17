@@ -9,6 +9,7 @@ import "./App.css";
 
 function App() {
   const [cart, setCart] = useState([]);
+
   const addToCart = (item) => {
     const isItemInCart = cart.some((itemInCart) => item.id === itemInCart.id);
     if (isItemInCart) {
@@ -21,8 +22,17 @@ function App() {
       setCart(updatedCart);
     } else {
       item.quantity = 1;
-      setCart([...cart, item]);
+      setCart((prevCart) => [...prevCart, item]);
     }
+  };
+
+  const removeItemFromCart = (itemId) => {
+    // loop through cart and add every item which id
+    // doesn't equal the item's id to a new array
+    const updatedCart = cart.filter((itemInCart) => {
+      return itemId !== itemInCart.id;
+    });
+    setCart(updatedCart);
   };
 
   const changeQuantity = (itemId, value) => {
@@ -37,15 +47,6 @@ function App() {
       });
       setCart(updatedCart);
     }
-  };
-
-  const removeItemFromCart = (itemId) => {
-    // loop through cart and add every item which id
-    // doesn't equal the item's id to a new array
-    const updatedCart = cart.filter((itemInCart) => {
-      return itemId !== itemInCart.id;
-    });
-    setCart(updatedCart);
   };
 
   return (
@@ -76,5 +77,3 @@ function App() {
 }
 
 export default App;
-
-// cart shows number from navbar

@@ -2,7 +2,7 @@ import React from "react";
 import Item from "./Item";
 import shirtsData from "../shirtsData";
 
-function Shop(props) {
+function Shop() {
   return (
     <div>
       <header className="shop-header">
@@ -15,7 +15,7 @@ function Shop(props) {
             <Item
               name={item.name}
               image={item.img}
-              price={`£${item.price}`}
+              price={item.price}
               key={item.id}
               id={item.id}
             />

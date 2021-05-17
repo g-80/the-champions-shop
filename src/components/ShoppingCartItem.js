@@ -25,7 +25,7 @@ function ShoppingCartItem({ item, index, itemRemove, changeQuantity }) {
     let listElements = [];
     for (let i = 0; i < 6; i++) {
       const listElement = (
-        <li className="q-list">
+        <li className="q-list" key={i}>
           <button
             className="q-list-btn"
             value={i}
@@ -41,11 +41,12 @@ function ShoppingCartItem({ item, index, itemRemove, changeQuantity }) {
   };
 
   const createSelectElement = () => {
-    // Select element is used for functionality of changing quantity. It's not visible for user
+    // Select element is used for functionality of changing quantity.
+    // It's not visible for users
     let optionElements = [];
     for (let i = 0; i < 6; i++) {
       const optionElement = (
-        <option className="q-option" value={i}>
+        <option className="q-option" value={i} key={i}>
           {i}
         </option>
       );
@@ -103,5 +104,3 @@ function ShoppingCartItem({ item, index, itemRemove, changeQuantity }) {
 }
 
 export default ShoppingCartItem;
-
-// Getting the quantity dropdown to work took me over 4 hours

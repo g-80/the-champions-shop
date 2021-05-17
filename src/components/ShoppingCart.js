@@ -1,28 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import ShoppingCartItem from "./ShoppingCartItem";
 
 function ShoppingCart({ cart, remove, changeQuantity }) {
-  const [checkoutDisplay, setCheckoutDisplay] = useState(null);
-  const checkoutOnClick = () => {
-    const display = (
-      <div className="checkout-bg">
-        <div className="checkout-display">
-          <span className="checkout-span">Sike. You thought</span>
-          <button
-            className="button-1"
-            onClick={() => {
-              setCheckoutDisplay(null);
-            }}
-          >
-            Back to cart
-          </button>
-        </div>
-      </div>
-    );
-    setCheckoutDisplay(display);
-  };
-
   const calculateTotal = () => {
     const total = cart.reduce((sum, item) => {
       return sum + item.price * item.quantity;
@@ -30,8 +10,9 @@ function ShoppingCart({ cart, remove, changeQuantity }) {
     return total;
   };
 
-  // create shopping cart depending if it's empty or has items
   const createCartContent = () => {
+    // create shopping cart depending if it's empty or has items
+    console.log(cart);
     if (cart.length >= 1) {
       return (
         <div className="cart">
@@ -40,6 +21,7 @@ function ShoppingCart({ cart, remove, changeQuantity }) {
           <div className="cart-list">
             {cart.map((item, index) => (
               <ShoppingCartItem
+                key={item.id}
                 item={item}
                 index={index}
                 itemRemove={remove}
@@ -48,9 +30,7 @@ function ShoppingCart({ cart, remove, changeQuantity }) {
             ))}
           </div>
           <div className="cart-total">Total £{calculateTotal()}</div>
-          <button onClick={checkoutOnClick} className="cart-checkout button-1">
-            Checkout
-          </button>
+          <button className="cart-checkout button-1">Checkout</button>
         </div>
       );
     } else {
@@ -63,14 +43,10 @@ function ShoppingCart({ cart, remove, changeQuantity }) {
       );
     }
   };
+
   const cartContent = createCartContent();
 
-  return (
-    <div>
-      {checkoutDisplay}
-      {cartContent}
-    </div>
-  );
+  return <div>{cartContent}</div>;
 }
 
 export default ShoppingCart;
