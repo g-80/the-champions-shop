@@ -16,7 +16,11 @@ function ShoppingCart({ cart, remove, changeQuantity }) {
       return (
         <div className="cart">
           <h1>Your shopping cart</h1>
-          <h2 className="cart-items-num">{cart.length} items</h2>
+          <div>
+            <span>Items</span>
+            <span>Quantity</span>
+            <span>Total</span>
+          </div>
           <div className="cart-list">
             {cart.map((item) => (
               <ShoppingCartItem

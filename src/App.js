@@ -53,7 +53,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar itemsInCart={cart.length} />
+        <Navbar itemsInCart={cart} />
         <Switch>
           <Route exact path="/">
             <Home />
@@ -78,5 +78,3 @@ function App() {
 }
 
 export default App;
-
-//create cart id

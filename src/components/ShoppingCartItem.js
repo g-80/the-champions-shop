@@ -29,11 +29,14 @@ function ShoppingCartItem({ item, itemRemove, changeQuantity }) {
 
   return (
     <div className="cart-item">
-      <img src={item.img} alt={item.name} className="cart-item-image"></img>
-      <h3 className="cart-item-name">{item.name}</h3>
-      <span>{item.size}</span>
+      <div>
+        <img src={item.img} alt={item.name} className="cart-item-image"></img>
+        <h3 className="cart-item-name">{item.name}</h3>
+        <span>
+          Size: <strong>{item.size}</strong>
+        </span>
+      </div>
       <div className="cart-item-quantity">
-        <span className="cart-item-q-label">Quantity</span>
         <div className="q-cont">
           <button
             className="q-btn"
@@ -51,16 +54,17 @@ function ShoppingCartItem({ item, itemRemove, changeQuantity }) {
           </button>
         </div>
         {isDropdownOpen && createListElements()}
+        <button
+          onClick={() => {
+            itemRemove(item.inCartId);
+          }}
+          className="cart-item-delete"
+        >
+          Remove
+        </button>
       </div>
+      <span className="cart-item-price">£{item.price}</span>
       <span className="cart-item-price">£{item.price * item.quantity}</span>
-      <button
-        onClick={() => {
-          itemRemove(item.inCartId);
-        }}
-        className="cart-item-delete"
-      >
-        Delete
-      </button>
     </div>
   );
 }
