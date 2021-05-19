@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/the-champions-shop/static/css/main.0d5f544e.chunk.css",
-    "main.js": "/the-champions-shop/static/js/main.d6a265b0.chunk.js",
-    "main.js.map": "/the-champions-shop/static/js/main.d6a265b0.chunk.js.map",
+    "main.css": "/the-champions-shop/static/css/main.dbd67c2f.chunk.css",
+    "main.js": "/the-champions-shop/static/js/main.793b9d0c.chunk.js",
+    "main.js.map": "/the-champions-shop/static/js/main.793b9d0c.chunk.js.map",
     "runtime-main.js": "/the-champions-shop/static/js/runtime-main.0043f2ef.js",
     "runtime-main.js.map": "/the-champions-shop/static/js/runtime-main.0043f2ef.js.map",
-    "static/js/2.280220da.chunk.js": "/the-champions-shop/static/js/2.280220da.chunk.js",
-    "static/js/2.280220da.chunk.js.map": "/the-champions-shop/static/js/2.280220da.chunk.js.map",
+    "static/js/2.ba2c5098.chunk.js": "/the-champions-shop/static/js/2.ba2c5098.chunk.js",
+    "static/js/2.ba2c5098.chunk.js.map": "/the-champions-shop/static/js/2.ba2c5098.chunk.js.map",
     "index.html": "/the-champions-shop/index.html",
-    "static/css/main.0d5f544e.chunk.css.map": "/the-champions-shop/static/css/main.0d5f544e.chunk.css.map",
-    "static/js/2.280220da.chunk.js.LICENSE.txt": "/the-champions-shop/static/js/2.280220da.chunk.js.LICENSE.txt",
+    "static/css/main.dbd67c2f.chunk.css.map": "/the-champions-shop/static/css/main.dbd67c2f.chunk.css.map",
+    "static/js/2.ba2c5098.chunk.js.LICENSE.txt": "/the-champions-shop/static/js/2.ba2c5098.chunk.js.LICENSE.txt",
     "static/media/ajax_away_front.09fb2c01.png": "/the-champions-shop/static/media/ajax_away_front.09fb2c01.png",
     "static/media/ajax_home_front.cb79ccf7.jpg": "/the-champions-shop/static/media/ajax_home_front.cb79ccf7.jpg",
     "static/media/atalanta_away_f.9263854b.jpg": "/the-champions-shop/static/media/atalanta_away_f.9263854b.jpg",
@@ -20,7 +20,7 @@
     "static/media/barca_home_front.9d436791.png": "/the-champions-shop/static/media/barca_home_front.9d436791.png",
     "static/media/bayern_away_front.493f3438.png": "/the-champions-shop/static/media/bayern_away_front.493f3438.png",
     "static/media/bayern_home_front.d5955cea.png": "/the-champions-shop/static/media/bayern_home_front.d5955cea.png",
-    "static/media/App.css": "/the-champions-shop/static/media/bg1.4a07ac1b.jpg",
+    "static/media/Home.css": "/the-champions-shop/static/media/bg1.4a07ac1b.jpg",
     "static/media/bvb_away_f.0557e920.png": "/the-champions-shop/static/media/bvb_away_f.0557e920.png",
     "static/media/bvb_home_front.226f3bf4.png": "/the-champions-shop/static/media/bvb_home_front.226f3bf4.png",
     "static/media/chelsea_away_f.0c843b64.png": "/the-champions-shop/static/media/chelsea_away_f.0c843b64.png",
@@ -44,8 +44,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.0043f2ef.js",
-    "static/js/2.280220da.chunk.js",
-    "static/css/main.0d5f544e.chunk.css",
-    "static/js/main.d6a265b0.chunk.js"
+    "static/js/2.ba2c5098.chunk.js",
+    "static/css/main.dbd67c2f.chunk.css",
+    "static/js/main.793b9d0c.chunk.js"
   ]
 }
