@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./styles/Home.css";
 
-function Home(props) {
+function Home() {
   return (
     <div className="home">
       <div className="home-text-container">

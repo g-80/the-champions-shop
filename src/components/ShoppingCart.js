@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ShoppingCartItem from "./ShoppingCartItem";
+import "./styles/ShoppingCart.css";
 
 function ShoppingCart({ cart, remove, changeQuantity }) {
   const calculateTotal = () => {
@@ -14,32 +15,32 @@ function ShoppingCart({ cart, remove, changeQuantity }) {
     // create shopping cart depending if it's empty or has items
     if (cart.length >= 1) {
       return (
-        <div className="cart">
-          <h1>Your shopping cart</h1>
-          <div>
-            <span>Items</span>
-            <span>Quantity</span>
-            <span>Total</span>
+        <>
+          <div className="cart-content">
+            <div className="cart-head">
+              <span>Items</span>
+              <span>Quantity</span>
+              <span>Total</span>
+            </div>
+            <div className="cart-list">
+              {cart.map((item) => (
+                <ShoppingCartItem
+                  key={item.inCartId}
+                  item={item}
+                  itemRemove={remove}
+                  changeQuantity={changeQuantity}
+                />
+              ))}
+            </div>
+            <span className="cart-total">Total £{calculateTotal()}</span>
           </div>
-          <div className="cart-list">
-            {cart.map((item) => (
-              <ShoppingCartItem
-                key={item.inCartId}
-                item={item}
-                itemRemove={remove}
-                changeQuantity={changeQuantity}
-              />
-            ))}
-          </div>
-          <div className="cart-total">Total £{calculateTotal()}</div>
-          <button className="cart-checkout button-1">Checkout</button>
-        </div>
+          <button className="cart-checkout">Checkout</button>
+        </>
       );
     } else {
       return (
-        <div className="cart">
-          <h1>Your shopping cart</h1>
-          <h2>Your shopping cart is empty</h2>
+        <div className="empty-cart">
+          <h3>Your shopping cart is empty</h3>
           <Link to="/shop">Continue shopping</Link>
         </div>
       );
@@ -48,7 +49,14 @@ function ShoppingCart({ cart, remove, changeQuantity }) {
 
   const cartContent = createCartContent();
 
-  return <div>{cartContent}</div>;
+  return (
+    <div>
+      <div className="cart">
+        <h1>Your shopping cart</h1>
+        {cartContent}
+      </div>
+    </div>
+  );
 }
 
 export default ShoppingCart;

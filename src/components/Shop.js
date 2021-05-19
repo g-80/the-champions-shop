@@ -1,14 +1,15 @@
 import React from "react";
 import Item from "./Item";
 import shirtsData from "../shirtsData";
+import "./styles/Shop.css";
 
 function Shop() {
   return (
     <div>
-      <header className="shop-header">
-        <h1>Clubs shirts</h1>
-        <h2>{shirtsData.length} items</h2>
-      </header>
+      <div className="shop-heading">
+        <h2>Clubs shirts</h2>
+        <span>{shirtsData.length} items</span>
+      </div>
       <ul className="shop-items">
         {shirtsData.map((item) => {
           return (

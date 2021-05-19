@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./styles/ShoppingCartItem.css";
 
 function ShoppingCartItem({ item, itemRemove, changeQuantity }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -29,12 +30,16 @@ function ShoppingCartItem({ item, itemRemove, changeQuantity }) {
 
   return (
     <div className="cart-item">
-      <div>
-        <img src={item.img} alt={item.name} className="cart-item-image"></img>
-        <h3 className="cart-item-name">{item.name}</h3>
-        <span>
-          Size: <strong>{item.size}</strong>
-        </span>
+      <div className="cart-item-info">
+        <div>
+          <img src={item.img} alt={item.name} className="cart-item-image"></img>
+        </div>
+        <div className="item-name-size">
+          <h3>{item.name}</h3>
+          <span>
+            Size: <strong>{item.size}</strong>
+          </span>
+        </div>
       </div>
       <div className="cart-item-quantity">
         <div className="q-cont">
@@ -64,7 +69,9 @@ function ShoppingCartItem({ item, itemRemove, changeQuantity }) {
         </button>
       </div>
       <span className="cart-item-price">£{item.price}</span>
-      <span className="cart-item-price">£{item.price * item.quantity}</span>
+      <span className="cart-item-price-total">
+        £{item.price * item.quantity}
+      </span>
     </div>
   );
 }
